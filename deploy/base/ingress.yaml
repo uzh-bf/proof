@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: proof-sdk
+  namespace: proof
+  annotations:
+    haproxy.org/timeout-tunnel: "3600s"
+    haproxy.org/timeout-server: "3600s"
+    haproxy.org/proxy-body-size: "16m"
+    haproxy.org/load-balance: "leastconn"
+spec:
+  ingressClassName: haproxy
+  tls:
+    - hosts:
+        - proof.example.com
+      secretName: proof-sdk-tls
+  rules:
+    - host: proof.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: proof-sdk
+                port:
+                  number: 80

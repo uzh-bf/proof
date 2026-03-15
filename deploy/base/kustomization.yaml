@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+  - pvc.yaml
+  - external-secret.yaml
+
+labels:
+  - pairs:
+      app.kubernetes.io/name: proof-sdk
+    includeSelectors: true
+
+configMapGenerator:
+  - name: proof-sdk-config
+    namespace: proof
+    literals:
+      - PROOF_ENV=production
+      - PROOF_PUBLIC_BASE_URL=https://proof.example.com
+      - PROOF_PUBLIC_ORIGIN=https://proof.example.com
+      - PROOF_CORS_ALLOW_ORIGINS=https://proof.example.com
+      - COLLAB_PUBLIC_BASE_URL=wss://proof.example.com/ws
+      - COLLAB_EMBEDDED_WS=1
+      - PROOF_TRUST_PROXY_HEADERS=1

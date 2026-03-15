@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - ../../base
+
+images:
+  - name: ghcr.io/your-org/proof-sdk
+    newTag: latest
+
+configMapGenerator:
+  - name: proof-sdk-config
+    namespace: proof
+    behavior: replace
+    literals:
+      - PROOF_ENV=production
+      - PROOF_PUBLIC_BASE_URL=https://proof.df-app.ch
+      - PROOF_PUBLIC_ORIGIN=https://proof.df-app.ch
+      - PROOF_CORS_ALLOW_ORIGINS=https://proof.df-app.ch
+      - COLLAB_PUBLIC_BASE_URL=wss://proof.df-app.ch/ws
+      - COLLAB_EMBEDDED_WS=1
+      - PROOF_TRUST_PROXY_HEADERS=1
+
+patches:
+  - path: patches/ingress-host.yaml
+  - path: patches/external-secret-store.yaml
+  - path: patches/deployment-resources.yaml
