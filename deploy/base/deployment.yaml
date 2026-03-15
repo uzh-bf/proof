@@ -21,7 +21,7 @@ spec:
         fsGroup: 1001
       containers:
         - name: proof-sdk
-          image: ghcr.io/your-org/proof-sdk:latest
+          image: ghcr.io/uzh-bf/proof:latest
           securityContext:
             allowPrivilegeEscalation: false
             runAsNonRoot: true

@@ -5,7 +5,7 @@ resources:
   - ../../base
 
 images:
-  - name: ghcr.io/your-org/proof-sdk
+  - name: ghcr.io/uzh-bf/proof
     newTag: latest
 
 configMapGenerator:
