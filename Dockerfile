@@ -59,6 +59,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends python3 make g+
 COPY --from=deps /app/node_modules/tsx          node_modules/tsx
 COPY --from=deps /app/node_modules/esbuild      node_modules/esbuild
 COPY --from=deps /app/node_modules/@esbuild     node_modules/@esbuild
+COPY --from=deps /app/node_modules/get-tsconfig    node_modules/get-tsconfig
+COPY --from=deps /app/node_modules/resolve-pkg-maps node_modules/resolve-pkg-maps
 
 # Copy application source
 COPY server/          server/
