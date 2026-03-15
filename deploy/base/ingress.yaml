@@ -8,6 +8,7 @@ metadata:
     haproxy.org/timeout-server: "3600s"
     haproxy.org/proxy-body-size: "16m"
     haproxy.org/load-balance: "leastconn"
+    haproxy.org/whitelist: "130.60.0.0/16, 89.206.0.0/16"
 spec:
   ingressClassName: haproxy
   tls:
