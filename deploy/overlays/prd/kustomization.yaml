@@ -23,5 +23,5 @@ configMapGenerator:
 
 patches:
   - path: patches/ingress-host.yaml
-  - path: patches/external-secret-store.yaml
+  - path: patches/deployment-secrets.yaml
   - path: patches/deployment-resources.yaml
