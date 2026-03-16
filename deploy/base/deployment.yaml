@@ -19,6 +19,19 @@ spec:
       securityContext:
         runAsUser: 1001
         fsGroup: 1001
+      initContainers:
+        - name: init-data-dirs
+          image: ghcr.io/uzh-bf/proof:latest
+          command: ["sh", "-c", "mkdir -p /data/db /data/snapshots"]
+          securityContext:
+            allowPrivilegeEscalation: false
+            runAsNonRoot: true
+            capabilities:
+              drop:
+                - ALL
+          volumeMounts:
+            - name: data
+              mountPath: /data
       containers:
         - name: proof-sdk
           image: ghcr.io/uzh-bf/proof:latest
