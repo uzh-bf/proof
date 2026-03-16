@@ -4,7 +4,7 @@ metadata:
   name: proof-sdk
   namespace: proof
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-prod
+    cert-manager.io/cluster-issuer: k8s-crt-mgr-iss-prd-apps-default
 spec:
   tls:
     - hosts:
