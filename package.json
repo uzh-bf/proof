@@ -22,7 +22,7 @@
     "@fontsource/ibm-plex-sans": "^5.2.8",
     "@handlewithcare/prosemirror-suggest-changes": "^0.1.8",
     "@hocuspocus/provider": "^2.15.2",
-    "@hocuspocus/server": "^2.15.2",
+    "@hocuspocus/server": "^4.0.0",
     "@milkdown/core": "^7.5.0",
     "@milkdown/kit": "^7.5.0",
     "@milkdown/plugin-clipboard": "^7.5.0",
