@@ -10,8 +10,8 @@ spec:
         - name: proof-sdk
           resources:
             requests:
-              cpu: 500m
-              memory: 1Gi
+              cpu: 25m
+              memory: 256Mi
             limits:
               cpu: "2"
               memory: 2Gi
